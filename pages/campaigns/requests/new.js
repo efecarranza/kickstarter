@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button, Message, Input } from 'semantic-ui-react';
-import Campaign from '../../../ethereum/campaign';
+import getCampaign from '../../../ethereum/campaign';
 import web3 from '../../../ethereum/web3';
 import { Link, Router } from '../../../routes';
 import Layout from '../../../components/Layout';
@@ -26,7 +26,7 @@ class RequestNew extends Component {
         this.setState({ loading: true, errorMessage: '' });
 
         try {
-            const campaign = Campaign(this.props.address);
+            const campaign = getCampaign(this.props.address);
             const { description, value, recipient } = this.state;
             const accounts = await web3.eth.getAccounts();
 

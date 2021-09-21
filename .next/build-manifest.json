@@ -24,15 +24,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/campaigns/new": [
+    "/campaigns/requests/new": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/campaigns/new.js"
+      "static/chunks/pages/campaigns/requests/new.js"
     ],
-    "/next/dist/pages/_error": [
+    "/campaigns/show": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/next/dist/pages/_error.js"
+      "static/chunks/pages/campaigns/show.js"
     ]
   },
   "ampFirstPages": []

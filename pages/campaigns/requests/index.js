@@ -10,6 +10,7 @@ class RequestIndex extends Component {
         const address = props.query.address;
         const campaign = getCampaign(address);
         const requestCount = await campaign.methods.getRequestsCount().call();
+        const approversCount = await campaign.methods.approversCount().call();
 
         const requests = await Promise.all(
             Array(parseInt(requestCount)).fill().map((element, index) => {
@@ -17,7 +18,7 @@ class RequestIndex extends Component {
             })
         );
 
-        return { address, requests, requestCount };
+        return { address, requests, requestCount, approversCount };
     }
 
     renderRows() {
@@ -28,6 +29,7 @@ class RequestIndex extends Component {
                     id={index}
                     request={request}
                     address={this.props.address}
+                    approversCount={this.props.approversCount}
                 />
             );
         });
@@ -39,6 +41,17 @@ class RequestIndex extends Component {
             <Layout>
             <div>
                 <h3>Requests</h3>
+                    <Link route={`/campaigns/${this.props.address}/requests/new`}>
+                        <a>
+                            <Button
+                                style={{ marginBottom: 10 }}
+                                floated="right"
+                                content="Add Request"
+                                primary
+                            />
+                        </a>
+                    </Link>
+
                     <Table>
                         <Header>
                             <Row>
@@ -55,14 +68,8 @@ class RequestIndex extends Component {
                             {this.renderRows()}
                         </Body>
                     </Table>
-                    <Link route={`/campaigns/${this.props.address}/requests/new`}>
-                    <a>
-                        <Button
-                            content="Add Request"
-                            primary
-                        />
-                    </a>
-                </Link>
+                    <div>Found {this.props.requestCount} requests.</div>
+
             </div>
             </Layout>
         );

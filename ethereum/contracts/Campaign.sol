@@ -72,7 +72,7 @@ contract Campaign {
         Request storage request = requests[index];
 
         require(!request.complete);
-        require(request.approvalCount > (approversCount / 2));
+        require(request.approvalCount >= (approversCount / 2));
 
         request.recipient.transfer(request.value);
         request.complete = true;

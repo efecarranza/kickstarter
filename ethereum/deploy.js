@@ -4,7 +4,7 @@ const compiledFactory = require('./build/CampaignFactory.json');
 const infura_endpoint = 'https://rinkeby.infura.io/v3/d509fb5c95c04ae49799a35691d3d7bc';
 
 const provider = new HDWalletProvider(
-    'dutch first gospel zoo pipe phrase scene guard crime salt green creek',
+    '',
     infura_endpoint
 );
 

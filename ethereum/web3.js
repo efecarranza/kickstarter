@@ -6,7 +6,7 @@ if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
     window.ethereum.request({ method: 'eth_requestAccounts' });
     web3 = new Web3(window.ethereum);
 } else {
-    const provider = new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/d509fb5c95c04ae49799a35691d3d7bc');
+    const provider = new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/');
     web3 = new Web3(provider);
 }
 
